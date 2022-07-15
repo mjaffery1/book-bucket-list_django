@@ -1,5 +1,5 @@
 {% extends 'book_bucketlist/base.html' %} {% block content %}
-<h2>Books <a href="">(+)</a></h2>
+<h2>Books <a href="{% url 'book_create' %}">(+)</a></h2>
 <ul>
   {% for book in books %}
   <li>

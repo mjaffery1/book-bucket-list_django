@@ -1,8 +1,9 @@
 {% extends 'book_bucketlist/base.html' %} {% block content %}
-<h2>{{ author.name }} <a href="">(edit)</a></h2>
+<h2>{{ author.name }} <a href="{% url 'author_edit' pk=author.pk %}">(edit)</a><a href="{% url 'author_delete' pk=author.pk %}">(Delete)</a>
+</h2>
 <img src="{{ author.photo_url }}" alt="" class="author-photo" />
 
-<h3>Books <a href="">(+)</a></h3>
+<h3>Books <a href="{% url 'book_create' %}">(+)</a></h3>
 <ul>
   {% for book in author.books.all %}
   <li>
