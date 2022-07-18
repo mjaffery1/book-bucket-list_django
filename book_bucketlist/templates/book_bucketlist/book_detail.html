@@ -4,6 +4,8 @@
    <h2>{{book.title}} 
         <a  href="{% url 'book_edit' pk=book.pk %}" >(edit)</a> <a href="{% url 'book_delete' pk=book.pk %}">(Delete)</a>
    </h2>
+   <h2>Author: {{book.author}}</h2>
     <h2>Book Description: {{ book.description}}
     <h3>Year Published: {{book.year}}</h3>
+   
     {% endblock %}

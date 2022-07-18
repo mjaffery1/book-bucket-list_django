@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Author, Book
-from .forms import AuthorForm, BookForm
+from .models import Author, Book, User
+from .forms import AuthorForm, BookForm, UserForm
 # Create your views here.
 
 def author_list(request):
@@ -36,6 +36,38 @@ def author_delete(request, pk):
     Author.objects.get(pk=pk).delete()
     return redirect('author_list')
             
+def user_list(request):
+    users = User.objects.all()
+    return render(request, 'book_bucketlist/user_list.html', {'users': users})
+
+def user_detail(request, pk):
+    user = User.objects.get(pk=pk)
+    return render(request, 'book_bucketlist/user_detail.html', {'user': user})
+
+def user_create(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect('user_detail', pk=user.pk)
+    else:
+        form = UserForm()
+    return render(request, 'book_bucketlist/user_form.html', {'form': form})
+
+def user_edit(request,pk):
+    user = User.objects.get(pk=pk)
+    if request.method == "POST":
+        form = UserForm(request.POST, instance=user)
+        if form.is_valid():
+            user = form.save()
+            return redirect('user_detail', pk=user.pk)
+    else:
+        form = UserForm(instance=user)
+    return render(request, 'book_bucketlist/user_form.html', {'form': form})
+
+def user_delete(request, pk):
+    User.objects.get(pk=pk).delete()
+    return redirect('user_list')
 
 def book_list(request):
     books = Book.objects.all()

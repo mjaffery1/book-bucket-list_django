@@ -1,5 +1,6 @@
 {% extends 'book_bucketlist/base.html' %} {% block content %}
-<h2>Authors <a href="{% url 'author_create' %}">(+)</a></h2>
+{% load tailwind_tags %}
+<h2 class="font-large text-4xl">Authors <a href="{% url 'author_create' %}" class="font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">(+)</a></h2>
 <ul>
   {% for author in authors %}
   <li>
@@ -9,4 +10,4 @@
   </li>
   {% endfor %}
 </ul>
-{% endblock %} . 
+{% endblock %}  
