@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Author, Book, User
-from .forms import AuthorForm, BookForm, UserForm
+from .models import Author, Book, User, UserBookList
+from .forms import AuthorForm, BookForm, UserForm, UserBookForm
 # Create your views here.
 
 def author_list(request):
@@ -42,7 +42,9 @@ def user_list(request):
 
 def user_detail(request, pk):
     user = User.objects.get(pk=pk)
-    return render(request, 'book_bucketlist/user_detail.html', {'user': user})
+    list = UserBookList.objects.filter(user_id=user.id)
+    print(list)
+    return render(request, 'book_bucketlist/user_detail.html', {'user': user, 'list': list})
 
 def user_create(request):
     if request.method == 'POST':
@@ -101,4 +103,28 @@ def book_edit(request,pk):
 def book_delete(request, pk):
     Book.objects.get(pk=pk).delete()
     return redirect('book_list')
+
+def add_book_to_user(request, pk):
+    list = UserBookList()
+    book = Book.objects.get(id=pk)
+    if request.method == "POST":
+        # Gets user id from form data when submitting
+        user = User.objects.get(id=request.POST["users"])
+        form = UserBookForm(request.POST, instance=book)
+        if form.is_valid():
+            book = form.save()
+            # list.save()
+            list.user = user
+            list.book = book
+            print(list.user)
+            print(list.book)
+            # list.save()
+
+            # print(book)
+            return redirect('book_detail', pk=book.pk)
+    else:
+        # users = User.objects.all() 
+        form = UserBookForm()
+        return render(request, 'book_bucketlist/add_book.html', {'form': form})
+
             

@@ -1,13 +1,18 @@
 {% extends 'book_bucketlist/base.html' %} {% block content %}
-<h2>{{ user.name }} <a href="{% url 'user_edit' pk=user.pk %}">(edit)</a><a href="{% url 'user_delete' pk=user.pk %}">(Delete)</a>
+<h2 class= "text-xl">{{ user.name }} <a href="{% url 'user_edit' pk=user.pk %}">(Edit)</a><a href="{% url 'user_delete' pk=user.pk %}">(Delete)</a> <a href="{% url 'add_book_to_user' pk=user.pk %}">(Add Book)</a>
 </h2>
-
-<h3>Bucket List <a href="{% url 'user_create' %}">(+)</a></h3>
+<h3>{{ book.title }}</h3>
 <ul>
   {% for book in user.books.all %}
-  <li>
+  <li class = "hover_underline">
     <a href="{% url 'book_detail' pk=book.pk %}">{{ book.title }} </a>
-  </li>
+  </li> 
   {% endfor %}
-</ul>
+  {% for item in list %}
+  <li class = "hover_underline">
+    {% comment %} <a href="{% url 'book_detail' pk=book.pk %}">{{ book.title }} </a> {% endcomment %}
+    <p>{{item.book}}</p>
+  </li> 
+  {% endfor %}
+</ul>  
 {% endblock %}

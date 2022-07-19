@@ -1,13 +1,12 @@
 {% extends 'book_bucketlist/base.html' %} {% block content %}
-<h2>{{ author.name }} <a href="{% url 'author_edit' pk=author.pk %}">(edit)</a><a href="{% url 'author_delete' pk=author.pk %}">(Delete)</a>
+<h2 class= "text-xl">{{ author.name }} <a href="{% url 'author_edit' pk=author.pk %}">(Edit)</a><a href="{% url 'author_delete' pk=author.pk %}">(Delete)</a>
 </h2>
 <img src="{{ author.photo_url }}" alt="" class="author-photo" />
-
-<h3>Books <a href="{% url 'book_create' %}">(+)</a></h3>
+<h3 class= "text-xl">Books <a href="{% url 'book_create' %}">(+)</a></h3>
 <ul>
   {% for book in author.books.all %}
-  <li>
-    <a href="{% url 'book_detail' pk=book.pk %}">{{ book.title }} </a>
+  <li class = "hover:underline" >
+    <a href="{% url 'book_detail' pk=book.pk %}" class= "text-xl">{{ book.title }} </a>
   </li>
   {% endfor %}
 </ul>

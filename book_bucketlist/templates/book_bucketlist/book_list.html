@@ -2,8 +2,8 @@
 <h2 class="font-large text-4xl"> Books <a href="{% url 'book_create' %}" class="font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">(+)</a></h2>
 <ul>
   {% for book in books %}
-  <li>
-    <a href="{% url 'book_detail' pk=book.pk %}" >{{ book.title }} </a>
+  <li class= "text-xl hover:underline">
+    <a href="{% url 'book_detail' pk=book.pk %}" >{{ book.title }}</a>
   </li>
   {% endfor %}
 </ul>

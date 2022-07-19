@@ -1,9 +1,9 @@
 {% extends 'book_bucketlist/base.html' %} {% block content %}
 {% load tailwind_tags %}
-<h2 class="font-large text-4xl">Users <a href="{% url 'user_create' %}" class="font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">(+)</a></h2>
+<h2 class="font-large text-4xl">Bucket Lists <a href="{% url 'user_create' %}" class="font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">(+)</a></h2>
 <ul>
   {% for user in users %}
-  <li>
+  <li class= "text-xl hover:underline">
     <a href="{% url 'user_detail' pk=user.pk %}">
         {{ user.name }}
       </a>
