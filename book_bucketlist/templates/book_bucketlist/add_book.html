@@ -1,7 +1,7 @@
 {% extends 'book_bucketlist/base.html' %} {% block content %}
 
-<h3>Add Book to Who's List?</h3>
-<form method="POST" class="user-form">
+<h3 class= "text-3xl text-blue-600 bg-black">Add Book to Who's List?</h3>
+<form class="text-3xl bg-black text-emerald-600 font-bold" method="POST" class="user-form">
     {% csrf_token %} {{ form.as_p }}
     <button type="submit" class="save btn btn-default">Save</button>
   </form>

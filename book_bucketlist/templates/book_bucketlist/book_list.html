@@ -1,8 +1,8 @@
 {% extends 'book_bucketlist/base.html' %} {% block content %}
 <h2 class="font-large text-4xl"> Books <a href="{% url 'book_create' %}" class="font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">(+)</a></h2>
-<ul>
+<ul class= "font-large text-3xl">
   {% for book in books %}
-  <li class= "text-xl hover:underline">
+  <li class = "hover:underline text-emerald-600">
     <a href="{% url 'book_detail' pk=book.pk %}" >{{ book.title }}</a>
   </li>
   {% endfor %}

@@ -3,11 +3,16 @@
 <html>
   <head>
     <title>Book Bucket List</title>
+    <style>
+      body{
+        background-image:url(https://images.unsplash.com/photo-1605116959031-6e2d13a2ee56?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Ym9va3NoZWxmfGVufDB8fDB8fA%3D%3D&w=1000&q=80)
+      }
+    </style>
     {% tailwind_css %}
   </head>
   <body>
-    <h1 class="bg-black text-6xl font-normal leading-normal mt-0 mb-2 text-blue-800">
-        Welcome to the Bucket List</h1>
+    {% comment %} <h1 class="bg-black text-6xl font-normal leading-normal mt-0 mb-2 text-teal-200">
+        Welcome to the Bucket List</h1> {% endcomment %}
         <nav class="flex items-center space-between flex-wrap bg-teal-500 p-6">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
               <svg class="fill-current h-8 w-8 mr-2" width="100" height="100" viewBox=" 0 54 54" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>

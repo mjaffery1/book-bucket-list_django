@@ -1,7 +1,6 @@
 {% extends 'book_bucketlist/base.html' %} {% block content %}
-<h2 class= "text-xl">{{ user.name }} <a href="{% url 'user_edit' pk=user.pk %}">(Edit)</a><a href="{% url 'user_delete' pk=user.pk %}">(Delete)</a> <a href="{% url 'add_book_to_user' pk=user.pk %}">(Add Book)</a>
+<h2 class= "text-3xl hover:underline text-blue-600 bg-black">{{ user.name }} <a href="{% url 'user_edit' pk=user.pk %}">(Edit)</a><a href="{% url 'user_delete' pk=user.pk %}">(Delete)</a> 
 </h2>
-<h3>{{ book.title }}</h3>
 <ul>
   {% for book in user.books.all %}
   <li class = "hover_underline">
@@ -9,9 +8,7 @@
   </li> 
   {% endfor %}
   {% for item in list %}
-  <li class = "hover_underline">
-    {% comment %} <a href="{% url 'book_detail' pk=book.pk %}">{{ book.title }} </a> {% endcomment %}
-    <p>{{item.book}}</p>
+    <p class="text-3xl bg-black text-emerald-600 font-bold">{{item.book}}</p>
   </li> 
   {% endfor %}
 </ul>  
