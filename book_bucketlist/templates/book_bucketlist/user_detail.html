@@ -1,5 +1,5 @@
 {% extends 'book_bucketlist/base.html' %} {% block content %}
-<h2 class= "text-3xl hover:underline text-blue-600 bg-black">{{ user.name }} <a href="{% url 'user_edit' pk=user.pk %}">(Edit)</a><a href="{% url 'user_delete' pk=user.pk %}">(Delete)</a> 
+<h2 class= "text-3xl text-blue-600 bg-black">{{ user.name }} <a href="{% url 'user_edit' pk=user.pk %}" class="hover:underline">(Edit)</a><a href="{% url 'user_delete' pk=user.pk %}" class="hover:underline">(Delete)</a> 
 </h2>
 <ul>
   {% for book in user.books.all %}

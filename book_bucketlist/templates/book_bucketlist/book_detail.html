@@ -2,7 +2,7 @@
   
   <img src="{{ book.cover_url }}" alt="" class="book-cover" />
    <h2 class= "text-3xl bg-black text-emerald-600 font-bold">{{book.title}} 
-        <a href="{% url 'book_edit' pk=book.pk %}">(Edit)</a> <a href="{% url 'book_delete' pk=book.pk %}">(Delete)</a> <a href="{% url 'add_book_to_user' pk=book.pk%}">(Add to list) </a>
+        <a href="{% url 'book_edit' pk=book.pk %}" class="hover:underline">(Edit)</a> <a href="{% url 'book_delete' pk=book.pk %}" class="hover:underline">(Delete)</a> <a href="{% url 'add_book_to_user' pk=book.pk%}" class="hover:underline">(Add to list) </a>
    </h2>
    <h2 class= "bg-black text-emerald-600 font-bold text-xl hover:underline">Author: {{book.author}}</h2>
    <h2 class= "bg-black text-emerald-600 text-2xl hover:underline">Book Description: {{ book.description}}
